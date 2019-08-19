@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -35,13 +35,13 @@ namespace AuthServer
             //    options.MinimumSameSitePolicy = SameSiteMode.None;
             //});
 
-            string connectionString = Configuration.GetConnectionString("Default");
+            string connectionString = Configuration.GetConnectionString("SqliteDb");
             var migrationAssembly = typeof(AppIdentityDbContext).GetTypeInfo()
                 .Assembly.GetName().Name;
 
 
             services.AddDbContext<AppIdentityDbContext>(options => {
-                options.UseSqlServer(connectionString);
+                options.UseSqlite(connectionString);
             });
 
             services.AddIdentity<AppUser, IdentityRole>()
@@ -54,7 +54,7 @@ namespace AuthServer
                 .AddOperationalStore(options =>
                 {
                     options.ConfigureDbContext = builder =>
-                    builder.UseSqlServer(connectionString,
+                    builder.UseSqlite(connectionString,
                     sql => sql.MigrationsAssembly(migrationAssembly));
                     options.EnableTokenCleanup = true;
                     options.TokenCleanupInterval = 30;
@@ -65,7 +65,11 @@ namespace AuthServer
                 .AddAspNetIdentity<AppUser>();
 
 
-
+            services.AddCors(options =>
+            options.AddPolicy("AllowAll", p =>
+            p.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader()));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -82,12 +86,13 @@ namespace AuthServer
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+                app.UseHttpsRedirection();
             }
 
-            app.UseHttpsRedirection();
+           
             app.UseStaticFiles();
             //app.UseCookiePolicy();
-
+            app.UseCors("AllowAll");
             app.UseIdentityServer();
 
             app.UseMvc(routes =>

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -8,6 +8,7 @@
     <PackageReference Include="IdentityServer4.EntityFramework" Version="2.5.2" />
     <PackageReference Include="microsoft.aspnetcore.identity.entityframeworkcore" Version="2.2.0" />
     <PackageReference Include="microsoft.entityframeworkcore.design" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
     <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="2.2.6" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.2.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.2.0" />
