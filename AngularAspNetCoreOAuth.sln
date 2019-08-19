@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5647F7C2-FD0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServer", "src\AuthServer\AuthServer.csproj", "{523FAF62-1B33-4FEE-B5BC-C5DBCE84CF24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServer.Infrastructure", "src\AuthServer.Infrastructure\AuthServer.Infrastructure.csproj", "{DAC26B07-7D08-489A-9A0C-2938636B48A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,12 +31,25 @@ Global
 		{523FAF62-1B33-4FEE-B5BC-C5DBCE84CF24}.Release|x64.Build.0 = Release|Any CPU
 		{523FAF62-1B33-4FEE-B5BC-C5DBCE84CF24}.Release|x86.ActiveCfg = Release|Any CPU
 		{523FAF62-1B33-4FEE-B5BC-C5DBCE84CF24}.Release|x86.Build.0 = Release|Any CPU
+		{DAC26B07-7D08-489A-9A0C-2938636B48A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC26B07-7D08-489A-9A0C-2938636B48A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC26B07-7D08-489A-9A0C-2938636B48A6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DAC26B07-7D08-489A-9A0C-2938636B48A6}.Debug|x64.Build.0 = Debug|Any CPU
+		{DAC26B07-7D08-489A-9A0C-2938636B48A6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DAC26B07-7D08-489A-9A0C-2938636B48A6}.Debug|x86.Build.0 = Debug|Any CPU
+		{DAC26B07-7D08-489A-9A0C-2938636B48A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC26B07-7D08-489A-9A0C-2938636B48A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAC26B07-7D08-489A-9A0C-2938636B48A6}.Release|x64.ActiveCfg = Release|Any CPU
+		{DAC26B07-7D08-489A-9A0C-2938636B48A6}.Release|x64.Build.0 = Release|Any CPU
+		{DAC26B07-7D08-489A-9A0C-2938636B48A6}.Release|x86.ActiveCfg = Release|Any CPU
+		{DAC26B07-7D08-489A-9A0C-2938636B48A6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{523FAF62-1B33-4FEE-B5BC-C5DBCE84CF24} = {5647F7C2-FD06-476C-9080-288FE6582D74}
+		{DAC26B07-7D08-489A-9A0C-2938636B48A6} = {5647F7C2-FD06-476C-9080-288FE6582D74}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {498C3A8B-9F8D-4731-864F-9DF71990E28F}
