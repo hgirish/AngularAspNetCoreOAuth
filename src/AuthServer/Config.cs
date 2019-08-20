@@ -1,8 +1,5 @@
 ﻿using IdentityServer4.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AuthServer
 {
@@ -15,6 +12,7 @@ namespace AuthServer
                 new IdentityResources.OpenId(),
                 new IdentityResources.Email(),
                 new IdentityResources.Profile(),
+                new IdentityResource("roles", new[]{"role"}),
             };
         }
 
@@ -39,12 +37,13 @@ namespace AuthServer
                     ClientId = "angular_spa",
                     ClientName = "Angular SPA",
                     AllowedGrantTypes = GrantTypes.Implicit,
-                    AllowedScopes = { "openid", "profile", "email", "api.read" },
+                    AllowedScopes = { "openid", "profile", "email", "api.read", "roles" },
                     RedirectUris = { "http://localhost:4200/auth-callback" },
                     PostLogoutRedirectUris = { "http://localhost:4200/" },
                     AllowedCorsOrigins = { "http://localhost:4200" },
                     AllowAccessTokensViaBrowser = true,
-                    AccessTokenLifetime = 3600
+                    AccessTokenLifetime = 3600,
+                    
                 }
             };
 

@@ -38,7 +38,7 @@ export class AuthService extends BaseService {
 
   register(userRegistration: any) {
     return this.http
-      .post(this.configService.authApiURI + '/account', userRegistration)
+      .post(this.configService.authApiURI + '/account/register', userRegistration)
       .pipe(catchError(this.handleError))
   }
 
@@ -68,7 +68,7 @@ export function getClientSettings(): UserManagerSettings {
     redirect_uri: 'http://localhost:4200/auth-callback',
     post_logout_redirect_uri: 'http://localhost:4200/',
     response_type: 'id_token token',
-    scope: 'openid profile email api.read',
+    scope: 'openid profile email api.read roles',
     filterProtocolClaims: true,
     loadUserInfo: true,
     automaticSilentRenew: true,

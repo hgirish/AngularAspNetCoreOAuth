@@ -1,13 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using AuthServer.Infrastructure.Data.Identity;
+using IdentityServer4.AspNetIdentity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -50,7 +45,7 @@ namespace AuthServer
 
             services.AddIdentityServer()
                // .AddDeveloperSigningCredential(filename:"d:\tmp\tempkey.rsa")
-               .AddSigningCredential("CN=localhost")
+               .AddSigningCredential("CN=IdentityServerCN")
                 // this adds the operational data from DB (codes, tokens, consents)
                 .AddOperationalStore(options =>
                 {
@@ -64,6 +59,7 @@ namespace AuthServer
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
                 .AddAspNetIdentity<AppUser>();
+                //.AddProfileService<ProfileService<AppUser>>();
 
 
             services.AddCors(options =>
