@@ -49,7 +49,8 @@ namespace AuthServer
                 .AddDefaultTokenProviders();
 
             services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
+               // .AddDeveloperSigningCredential(filename:"d:\tmp\tempkey.rsa")
+               .AddSigningCredential("CN=localhost")
                 // this adds the operational data from DB (codes, tokens, consents)
                 .AddOperationalStore(options =>
                 {
